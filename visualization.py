@@ -16,7 +16,7 @@ with conn:
     cur = conn.cursor()
 
     #getting the year of airing date and adding it with raiting
-    cur.execute('''SELECT average_rating, extract(year from airing_date) as airing_year
+    cur.execute('''SELECT average_rating::float, extract(year from airing_date)::integer as airing_year
                     FROM rating_date INNER JOIN  all_series ON rating_date.series_id = all_series.id
                     ORDER BY average_rating;''')
     series_popularity_1 = []
@@ -46,7 +46,7 @@ fig, (bar_ax, dot_ax) = plt.subplots(1, 2)
 #visualize first query
 data_query_1 = pd.DataFrame({'series_rating':series_popularity_1, 'year':year})
 bar_ax.set_title('Series rating & year of the airing date')
-sns.scatterplot(data = data_query_1, x = 'year', y = 'series_rating', ax = bar_ax)
+sns.boxplot(y = "year", x = "series_rating", data = data_query_1, ax = bar_ax, orient = 'h')
 fig.autofmt_xdate(rotation=45)
 
 #visualize second query
@@ -63,5 +63,6 @@ plt.subplots_adjust(left=0.1,
                     top=0.967,
                     wspace=0.76,
                     hspace=0.195)
-plt.savefig('graphs.png', dpi=350)
+
+#plt.savefig('graphs.png', dpi=350)
 plt.show()
