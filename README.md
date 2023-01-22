@@ -3,7 +3,7 @@ As a true drama fan, I was interested in ***two things***:
 1. Is there any relationship between drama rating and airing year
 2. And if there is a correlation between the rating of a drama and the average age of the actors who play in this series.
 
-***Data*** taken from [Kaggle](https://www.kaggle.com/datasets/robertonacu/tmdb-kdramas-2022). And originally from [The Movie Database (TMDB)](https://www.themoviedb.org/).
+***Data*** originally taken from [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
 ***Files:***
 - logical_schema.png: logical schema of the k_drama database.
